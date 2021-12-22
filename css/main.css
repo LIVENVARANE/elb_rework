@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--mainText);
+    background-color: var(--mainBackground);
+}
+
+:root {
+    --mainBackground: #1a1a1d;
+    --mainText: white;
+    --mainAccent: #1a588e;
+    --header: #252525;
+
+    --mainBRadius: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--mainAccent);
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    filter: brightness(1.4);
+}
+
+button {
+    outline: none;
+    border: none;
+    padding: 7px 20px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    background-color: var(--mainAccent);
+    border-radius: var(--mainBRadius);
+    transition: .2s ease-out border-radius;
+}
+
+button:hover {
+    border-radius: calc(var(--mainBRadius) + 3px);
+}
+
+button:active {
+    filter: brightness(0.8);
+}
+
+hr {
+    width: 80%;
+    border: none;
+    height: 1px;
+    background-color: var(--mainText);
+    opacity: .6;
+}
+
+img {
+    user-select: none;
+}
+
+header {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 120px;
+    background-color: var(--header);
+    user-select: none;
+}
+
+header .logo-container {
+    position: absolute;
+    left:  5px;
+    top: 0px;
+    height: 100%;
+    width: 120px;
+    cursor: pointer;
+}
+
+header .logo-container img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    pointer-events: none;
+    transition: .1s ease-out width;
+}
+
+header .logo-container:hover img {
+    width: 92px;
+}
+
+header .logo-container:active img {
+    width: 85px;
+}
+
+header .link-container {
+    position: absolute;
+    height: 120px;
+    left: 140px;
+}
+
+header .link-container .link {
+    height: 100%;
+    display: inline-block;
+    padding: 0px 30px;
+    cursor: pointer;
+}
+
+header .link-container .link a {
+    color: var(--mainText);
+    font-size: 24px;
+    pointer-events: none;
+    position: relative;
+    top: calc(50% - 14.5px);
+}
+
+header .link-container .link a:after {
+	content: '';
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin-top: 10px;
+    opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+header .link-container .link:hover a {
+    text-decoration: none;
+}
+
+header .link-container .link:active a {
+    filter: brightness(.7);
+}
+
+header .link-container .link:hover a:after {
+    opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+header .media-container {
+    position: absolute;
+    top: 0px;
+    right: 80px;
+    height: 100%;
+}
+
+@keyframes right-header-enter {
+    100% { opacity: 1; }
+}
+
+header .media-container div {
+    display: inline-block;
+    margin: 0px 5px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 35px;
+    width: 35px;
+    border-radius: calc(var(--mainBRadius) + 3px);
+    cursor: pointer;
+    transition: .1s ease-out border-radius;
+    opacity: 0;
+    animation: right-header-enter .5s forwards;
+}
+
+header .media-container div i {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 21px;
+}
+
+header .media-container div.big {
+    width: unset;
+    padding: 0px 60px 0px 81px;
+    font-weight: 700;
+    font-size: 14pt;
+    line-height: 35px;
+    text-align: center;
+    position: relative;
+    top: 49px;
+}
+
+header .media-container div.big i {
+    left: 65px;
+    font-weight: normal;
+    font-size: 17px;
+}
+
+header .media-container div:hover {
+    border-radius: calc(var(--mainBRadius) + 5px);
+}
+
+header .media-container div:active {
+    filter: brightness(.8);
+}
+
+header .language {
+    position: absolute;
+    right: 30px;
+    height: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    border-radius: var(--mainBRadius);
+    cursor: pointer;
+    opacity: 0;
+    animation: right-header-enter .1s forwards;
+    transition: .2s ease-out height;
+}
+
+header .language:hover {
+    height: 27px;
+}
+
+header .language:active {
+    filter: brightness(.8);
+}

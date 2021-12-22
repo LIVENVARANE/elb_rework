@@ -1,0 +1,9 @@
+body {
+    background-image: url(../assets/background.png) !important;
+    background-position: center;
+}
+
+header {
+    background-color: rgba(37, 37, 37, 0.274) !important;
+    backdrop-filter: blur(10px);
+}
