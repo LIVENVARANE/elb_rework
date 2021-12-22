@@ -155,7 +155,7 @@ header .link-container .link:hover a:after {
 header .media-container {
     position: absolute;
     top: 0px;
-    right: 80px;
+    right: 160px;
     height: 100%;
 }
 
@@ -175,7 +175,12 @@ header .media-container div {
     cursor: pointer;
     transition: .1s ease-out border-radius;
     opacity: 0;
+    pointer-events: none;
+}
+
+header .media-container.shown div {
     animation: right-header-enter .5s forwards;
+    pointer-events: auto;
 }
 
 header .media-container div i {
@@ -212,24 +217,83 @@ header .media-container div:active {
     filter: brightness(.8);
 }
 
-header .language {
+header .more-container {
     position: absolute;
+    top: 50%;
     right: 30px;
-    height: 30px;
+    height: 35px;
+    width: 100px;
+    background-color: #ffffff14;
+    transform: translateY(-50%);
+    border-radius: 100px;
+    opacity: 0;
+    animation: right-header-enter .5s forwards;
+}
+
+header .more-container div.vl {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1px;
+    height: 60%;
+    opacity: .6;
+    background-color: var(--mainText);
+}
+
+header .more-container img {
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px;
-    border-radius: var(--mainBRadius);
+    width: 20px;
     cursor: pointer;
+}
+
+header .more-container img:first-of-type {
+    left: 15px;
+    content: url(../assets/less.png);
+}
+
+header .more-container.shown img:first-of-type {
+    content: url(../assets/more.png);
+}
+
+header .more-container img:last-of-type {
+    right: 15px;
+    border-radius: 15px;
+}
+
+header .buttons-container {
+    position: absolute;
+    height: 100%;
+    right: 160px;
+    top: 0px;
+    pointer-events: none;
+}
+
+header .buttons-container.shown {
+    pointer-events: auto;
+}
+
+header .buttons-container.shown img {
+    animation: right-header-enter .5s forwards;
+}
+
+header .buttons-container img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 25px;
+    margin-left: 20px;
     opacity: 0;
-    animation: right-header-enter .1s forwards;
-    transition: .2s ease-out height;
+    cursor: pointer;
+    
 }
 
-header .language:hover {
-    height: 27px;
-}
-
-header .language:active {
+header .buttons-container img:hover {
     filter: brightness(.8);
+}
+
+header .buttons-container img:active {
+    filter: brightness(.6);
 }
