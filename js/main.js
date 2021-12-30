@@ -23,3 +23,11 @@ function toggleHeaderMore() {
         document.querySelector('.buttons-container').classList.remove('shown');
     }
 }
+
+function mobileMenu(input) {
+    if(document.getElementById('mobile-menu').style.left != '0px') { //mobile menu closed
+        document.getElementById('mobile-menu').style.left = '0px';
+    } else {
+        document.getElementById('mobile-menu').style.left = '-100%';
+    }
+}

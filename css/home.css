@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
 body {
     background-image: url(../assets/background.png) !important;
     background-position: center;
@@ -6,4 +9,108 @@ body {
 header {
     background-color: rgba(37, 37, 37, 0.274) !important;
     backdrop-filter: blur(10px);
+}
+
+.welcome-container {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: calc(50% + 30px);
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+.welcome-container div {
+    position: relative;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.welcome-container .vh {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50%;
+    width: 1px;
+    background-color: white;
+    opacity: .4;
+}
+
+.welcome-container div:first-of-type {
+    margin-right: 30px;
+}
+
+.welcome-container div:last-of-type {
+    margin-right: -10px;
+}
+
+.welcome-container div .logo {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+}
+
+.welcome-container div .content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: unset;
+    width: 45vw;
+}
+
+.welcome-container div .content h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 8vw;
+    margin: -36px 0px 0px 0px;
+    width: 100%;
+}
+
+.welcome-container div .content h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    letter-spacing: 12px;
+    margin-top: -5px;
+    padding: 0px 10px;
+}
+
+.welcome-container div .content button {
+    background-color: #ffffff0a;
+    border: 1px solid var(--mainAccent);
+    backdrop-filter: blur(50px);
+    margin-top: 15px;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
+}
+
+.welcome-container div .content button:hover {
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+    .welcome-container div:first-of-type {
+        position: absolute;
+        height: 70px;
+        margin-right: 0px;
+    }
+
+    .welcome-container .vh {
+        display: none;
+    }
+
+    .welcome-container div .logo {
+        width: 70px;
+        transform: translateX(-50%) translateY(-40px);
+    }
+
+    .welcome-container div:last-of-type, .content {
+        position: absolute;
+    }
+
+    .welcome-container div:last-of-type {
+        width: 100%;
+        left: 0px;
+    }
 }

@@ -13,6 +13,7 @@ html, body {
     --mainText: white;
     --mainAccent: #1a588e;
     --header: #252525;
+    --mobileMenu: #131313;
 
     --mainBRadius: 5px;
 }
@@ -69,7 +70,8 @@ header {
     left: 0px;
     top: 0px;
     width: 100%;
-    height: 120px;
+    height: 100px;
+    z-index: 1;
     background-color: var(--header);
     user-select: none;
 }
@@ -88,23 +90,23 @@ header .logo-container img {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 90px;
+    height: 80%;
     pointer-events: none;
-    transition: .1s ease-out width;
+    transition: .1s ease-out height;
 }
 
 header .logo-container:hover img {
-    width: 92px;
+    height: calc(80% + 2px);
 }
 
 header .logo-container:active img {
-    width: 85px;
+    height: calc(80% - 5px);
 }
 
 header .link-container {
     position: absolute;
-    height: 120px;
-    left: 140px;
+    height: 100%;
+    left: 110px;
 }
 
 header .link-container .link {
@@ -116,7 +118,7 @@ header .link-container .link {
 
 header .link-container .link a {
     color: var(--mainText);
-    font-size: 24px;
+    font-size: 21px;
     pointer-events: none;
     position: relative;
     top: calc(50% - 14.5px);
@@ -155,7 +157,7 @@ header .link-container .link:hover a:after {
 header .media-container {
     position: absolute;
     top: 0px;
-    right: 160px;
+    right: 140px;
     height: 100%;
 }
 
@@ -199,8 +201,7 @@ header .media-container div.big {
     font-size: 14pt;
     line-height: 35px;
     text-align: center;
-    position: relative;
-    top: 49px;
+    vertical-align: top;
 }
 
 header .media-container div.big i {
@@ -220,7 +221,7 @@ header .media-container div:active {
 header .more-container {
     position: absolute;
     top: 50%;
-    right: 30px;
+    right: 20px;
     height: 35px;
     width: 100px;
     background-color: #ffffff14;
@@ -266,7 +267,7 @@ header .more-container img:last-of-type {
 header .buttons-container {
     position: absolute;
     height: 100%;
-    right: 160px;
+    right: 140px;
     top: 0px;
     pointer-events: none;
 }
@@ -296,4 +297,162 @@ header .buttons-container img:hover {
 
 header .buttons-container img:active {
     filter: brightness(.6);
+}
+
+header .burger-btn {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 27px;
+    right: 40px;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: all
+}
+
+header .burger-btn input {
+    display: flex;
+    width: 94px;
+    height: 70px;
+    left: -30px;
+    top: -30px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+header .burger-btn span {
+    display: flex;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0;
+    transition: transform .5s cubic-bezier(.77,.2,.05,1),background .5s cubic-bezier(.77,.2,.05,1),opacity .55s ease
+}
+
+header .burger-btn span:first-child {
+    transform-origin: 0% 0%
+}
+
+header .burger-btn span:nth-last-child(2) {
+    transform-origin: 0% 100%
+}
+
+header .burger-btn input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-7px,-16px);
+    background: #fff
+}
+
+header .burger-btn input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(.2,.2)
+}
+
+header .burger-btn input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0,10px)
+}
+
+#mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: -100%;
+    width: 100%;
+    height: calc(100% - 110px);
+    padding-top: 110px;
+    background-color: var(--mobileMenu);
+    transition: .5s cubic-bezier(.77,.2,.05,1) left;
+}
+
+#mobile-menu h2 {
+    margin-left: 25px;
+    cursor: pointer;
+    user-select: none;
+}
+
+header .burger-btn input:checked~#mobile-menu {
+    left: 0px;
+}
+
+@media only screen and (max-width: 1200px) {
+    header {
+        height: 70px;
+    }
+
+    header .link-container .link {
+        padding: 0px 10px;
+    }
+
+    header .link-container .link a {
+        font-size: 17px;
+        top: calc(50% - 10px);
+    }
+
+    header .media-container {
+        right: 125px;
+    }
+
+    header .media-container div.big {
+        font-size: 0px;
+        width: 35px;
+        padding: 0px;
+    }
+
+    header .media-container div.big i {
+        left: unset;
+    }
+
+    header .buttons-container {
+        right: 125px;
+    }
+
+    header .buttons-container img {
+        margin-left: 10px;
+    }
+
+    header .more-container {
+        right: 15px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    header .buttons-container {
+        display: none;
+    }
+
+    header .more-container {
+        display: none;
+    }
+
+    header .logo-container {
+        width: 100%;
+        left: 0px;
+    }
+
+    header .logo-container:hover img {
+        height: 80%;
+    }
+
+    header .link-container {
+        display: none;
+    }
+
+    header .media-container {
+        display: none;
+    }
+
+    header .burger-btn {
+        display: flex;
+    }
+
+    #mobile-menu {
+        display: block;
+    }
 }

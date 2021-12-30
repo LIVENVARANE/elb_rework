@@ -9,6 +9,20 @@
         <script src="js/main.js"></script>
     </head>
     <body>
-        <?php include 'parts/header.html'; ?>
+        <?php include 'parts/header.php'; ?>
+        <div class="welcome-container" align="center">
+            <div align="right">
+                <img class="logo" src="assets/elb.png" />
+            </div>
+            <div class="vh"></div>
+            <div>
+                <div class="content" align="center">
+                    <h1>WELCOME</h1>
+                    <h3>TO MY WEBSITE</h3>
+                    <button>Discover the website</button>
+                </div>
+            </div>
+        </div>
+        <?php include 'parts/mobile_menu.html' ?>
     </body>
 </html>
