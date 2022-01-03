@@ -22,6 +22,8 @@ function toggleHeaderMore() {
         document.querySelector('.more-container').classList.add('shown');
         document.querySelector('.buttons-container').classList.remove('shown');
     }
+
+    document.querySelector('.account-tooltip').style.display = 'none';
 }
 
 function mobileMenu(input) {

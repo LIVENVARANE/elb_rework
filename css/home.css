@@ -89,6 +89,17 @@ header {
     border-radius: 5px;
 }
 
+#discover-anim {
+    position: fixed;
+    z-index: 999;
+    top: 0px;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--mobileMenu);
+    transition: .3s cubic-bezier(0, 0.35, 0.25, 1.02) left;
+}
+
 @media only screen and (max-width: 800px) {
     .welcome-container div:first-of-type {
         position: absolute;
