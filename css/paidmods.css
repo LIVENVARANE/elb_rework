@@ -1,0 +1,113 @@
+.upper-part {
+    width: 100%;
+}
+
+.upper-part h3 {
+    font-weight: 400;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.upper-part h3 span {
+    color: var(--mainAccent);
+}
+
+.upper-part .colors-container {
+    display: inline-block;
+}
+
+.upper-part .colors-container div {
+    position: relative;
+    display: inline-block;
+    margin: 0px 10px;
+    height: 20px;
+    opacity: .8;
+    font-variant: small-caps;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.upper-part .colors-container div div {
+    width: 30px;
+    height: 20px;
+    border-radius: var(--mainBRadius);
+    margin: 0px 7px 0px 0px;
+}
+
+.upper-part .colors-container div span {
+    vertical-align: top;
+}
+
+#card-container {
+    width: calc(100% - 40px);
+    padding: 0px 20px;
+}
+
+#card-container div {
+    display: inline-block;
+    background-color: #121212;
+    width: 23vw;
+    max-width: 700px;
+    margin: 15px 15px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+#card-container div img {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    border-radius: 7px;
+    pointer-events: none;
+    transition: .2s ease-in filter;
+}
+
+#card-container div span {
+    margin: 10px 0px;
+    display: block;
+    font-weight: 500;
+    pointer-events: none;
+    margin-left: 20px;
+}
+
+#card-container div span.name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16pt;
+    text-align: left;
+}
+
+#card-container div span.body {
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#card-container div span.price {
+    padding-top: 20px;
+    margin: 0px;
+}
+
+#card-container div span.see {
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    background-color: var(--mainAccent);
+    margin: 10px 10px;
+    padding: 5px 0px;
+    border-radius: var(--mainBRadius);
+    transition: .2s ease;
+}
+
+#card-container div:hover img {
+    filter: brightness(.8);
+}
+
+#card-container div:hover span.see {
+    filter: brightness(.8);
+    letter-spacing: .5px;
+}
+
+#card-container div span.see i {
+    margin-right: 10px;
+}

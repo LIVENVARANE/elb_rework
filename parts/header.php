@@ -3,10 +3,10 @@
         <img src="assets/elb.png" />
     </div>
     <div class="link-container">
-        <div class="link"><a>GTA Mods</a></div>
-        <div class="link"><a>My Mods</a></div>
+        <div class="link" onclick="link('paidmods.php')"><a>Paid Mods</a></div>
+        <div class="link" onclick="link('freemods.php')"><a>Free Mods</a></div>
         <div class="link"><a>GTA Accounts</a></div>
-        <div class="link"><a>FAQ</a></div>
+        <div class="link" onclick="link('faq.php')"><a>FAQ</a></div>
     </div>
     <div class="media-container shown">
         <div class="big" style="background-color: #7289DA; animation-delay: .2s;"><i class="fab fa-discord"></i> Discord</div>
@@ -14,7 +14,7 @@
     </div>
     <div class="buttons-container">
         <img src="assets/light_mode.png" style="animation-delay: .3s;" />
-        <img src="assets/account.png" style="animation-delay: .2s;" />
+        <img src="assets/account.png" style="animation-delay: .2s;" onclick="link('signin.php')" />
         <img src="assets/cog.png" style="animation-delay: .1s;" />
     </div>
     <div class="more-container shown">

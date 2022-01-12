@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&display=swap');
+
 
 html, body {
     margin: 0px;
@@ -9,7 +11,7 @@ html, body {
 }
 
 body {
-    padding-top: 75px;
+    padding-top: 70px;
 }
 
 :root {
@@ -68,6 +70,11 @@ hr {
 
 img {
     user-select: none;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: .5px;
 }
 
 header {
@@ -424,6 +431,39 @@ header .burger-btn input:checked~#mobile-menu {
     z-index: -1;
 }
 
+.title-effect {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    user-select: none;
+}
+
+.title-effect h1 {
+    font-size: 44pt;
+    margin-left: 50px;
+    margin-top: 20px;
+    transform: translateY(100px);
+    text-shadow: 1px -1px 6px rgb(0 0 0);
+    animation: title-enter 1s .5s cubic-bezier(0.26, 0.06, 0.28, 1) forwards;
+}
+
+.title-effect span {
+    position: absolute;
+    bottom: -70px;
+    left: -70px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 122pt;
+    opacity: .07;
+    white-space: nowrap;
+    transform: translateY(100px);
+    animation: title-enter 1s cubic-bezier(0.26, 0.06, 0.28, 1) forwards;
+}
+
+@keyframes title-enter {
+    100% { transform: translateY(0px); }
+}
+
 @media only screen and (max-width: 1200px) {
     header {
         height: 70px;
@@ -493,6 +533,10 @@ header .burger-btn input:checked~#mobile-menu {
 
     header .burger-btn {
         display: flex;
+    }
+
+    .account-tooltip {
+        display: none;
     }
 
     #mobile-menu {

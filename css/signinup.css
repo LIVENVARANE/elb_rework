@@ -1,0 +1,109 @@
+.sign {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: var(--header);
+    border-radius: 10px;
+}
+
+.sign .header {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.sign .header h1 {
+    position: absolute;
+    font-size: 34pt;
+    left: 20px;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.sign .header h1 i {
+    margin-right: 15px;
+    transform: translateY(-5px);
+    font-size: 20pt;
+    cursor: pointer;
+}
+
+.sign .header span {
+    position: relative;
+    top: -40px;
+    left: -25px;
+    font-family: 'Open Sans', sans-serif;
+    opacity: .1;
+    font-size: 109pt;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.sign input {
+    display: block;
+    padding: 8px 15px;
+    margin: 10px 10%;
+    border-radius: var(--mainBRadius);
+    width: 80%;
+    outline: none;
+    font-size: 11pt;
+    border: 1px solid transparent;
+}
+
+.sign input[type="text"], input[type="password"] {
+    background-color: transparent;
+    border: 1px solid gray;
+    color: white;
+    transition: .2s ease-out border;
+}
+
+.sign input[type="text"]:hover, input[type="password"]:hover, .sign input[type="text"]:focus, input[type="password"]:focus {
+    border: 1px solid var(--mainAccent);
+}
+
+.sign input::placeholder {
+    font-variant: small-caps;
+    font-style: italic;
+}
+
+.sign input[type="submit"] {
+    margin-bottom: 30px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--mainAccent);
+    color: white;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.sign input[type="submit"]:hover {
+    filter: brightness(.8);
+}
+
+.sign h5 {
+    position: absolute;
+    font-weight: 300;
+    width: 400px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: var(--header);
+    }
+
+    .sign {
+        top: 0px;
+        left: 0px;
+        transform: none;
+        width: 100%;
+        border-radius: 0px;
+    }
+
+    .sign h5 {
+        position: initial;
+        width: 100%;
+    }
+}

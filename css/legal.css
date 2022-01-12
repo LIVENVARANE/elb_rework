@@ -1,0 +1,16 @@
+.textblock {
+    padding: 0px 20px;
+}
+
+h2 {
+    display: block;
+    text-align: center;
+}
+
+a {
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    color: white;
+    margin: 5px 0px;
+}
