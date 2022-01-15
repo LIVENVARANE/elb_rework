@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+$db = new PDO('mysql:host=127.0.0.1;dbname=elbmodzz', 'root', '');
+
+if(isset($_SESSION['just_connected']) && $_SESSION['just_connected']) {
+    $_SESSION['just_connected'] = false;
+    $message = 'You are now connected to the account "' . $_SESSION['username'] . '"';
+}
+
+?>
 <html>
     <head>
         <title>ELBModzz - Home</title>
@@ -20,6 +31,9 @@
                 </div>
             </div>
         </div>
+        <?php if(isset($message)) { ?>
+            <div id="message" onclick="this.remove();"><i class="fas fa-info-circle"></i><span class="text"><?= $message ?></span><span class="dismiss">Dismiss</span></div>
+        <?php } ?>
         <div id="discover-anim"></div>
         <?php include 'parts/universal_parts.html' ?>
     </body>

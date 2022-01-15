@@ -464,6 +464,41 @@ header .burger-btn input:checked~#mobile-menu {
     100% { transform: translateY(0px); }
 }
 
+#message {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: var(--tooltip);
+    border-radius: var(--mainBRadius);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#message span {
+    transition: .2s ease opacity;
+}
+
+#message .dismiss {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    opacity: 0;
+}
+
+#message:hover .text {
+    opacity: 0;
+}
+
+#message:hover .dismiss {
+    opacity: 1;
+}
+
+#message i {
+    margin-right: 10px;
+}
+
 @media only screen and (max-width: 1200px) {
     header {
         height: 70px;
@@ -541,5 +576,21 @@ header .burger-btn input:checked~#mobile-menu {
 
     #mobile-menu {
         display: block;
+    }
+
+    #message {
+        width: calc(100% - 20px);
+        bottom: 0px;
+        right: 0px;
+        border-radius: 0px;
+    }
+
+    #message i {
+        display: none;
+    }
+
+    #message .text {
+        display: block;
+        text-align: center;
     }
 }
