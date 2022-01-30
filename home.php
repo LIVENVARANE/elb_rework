@@ -8,6 +8,11 @@ if(isset($_SESSION['just_connected']) && $_SESSION['just_connected']) {
     $message = 'You are now connected to the account "' . $_SESSION['username'] . '"';
 }
 
+if(isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    $_SESSION['message'] = null;
+}
+
 ?>
 <html>
     <head>

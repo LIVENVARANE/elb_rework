@@ -499,6 +499,94 @@ header .burger-btn input:checked~#mobile-menu {
     margin-right: 10px;
 }
 
+#account-cb {
+    display: none;
+}
+
+.account {
+    position: fixed;
+    top: 0px;
+    right: -300px;
+    z-index: 3;
+    width: 300px;
+    height: 100%;
+    background-color: var(--header);
+    transition: .3s cubic-bezier(0.19, 0, 0.15, 0.97) right;
+}
+
+.account .header {
+    position: relative;
+    height: 75px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.account .header h1 {
+    position: relative;
+    left: 15px;
+    /* top: 5px; */
+    top: 45px;
+    text-shadow: 1px -1px 6px rgb(0 0 0);
+    pointer-events: none;
+    transition: .5s .1s cubic-bezier(0.26, 0.06, 0.28, 1) top;
+}
+
+.account .header span {
+    position: relative;
+    /* top: -105px; */
+    top: 45px;
+    left: -30px;
+    font-family: 'Open Sans', sans-serif;
+    opacity: .1;
+    font-size: 70pt;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 1s cubic-bezier(0.26, 0.06, 0.28, 1) top;
+}
+
+.account .header i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16pt;
+    padding: 10px;
+    width: 21px;
+    text-align: center;
+    background-color: var(--header);
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.account .line {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 25px;
+    font-size: 13pt;
+    cursor: pointer;
+    user-select: none;
+    transition: .2s ease letter-spacing;
+}
+
+.account .line:hover {
+    letter-spacing: 1px;
+}
+
+.account .line i {
+    margin-right: 10px;
+}
+
+#account-cb:checked + .account {
+    right: 0px;
+}
+
+#account-cb:checked + .account .header h1 {
+    top: 5px;
+}
+
+#account-cb:checked + .account .header span {
+    top: -105px;
+}
+
 @media only screen and (max-width: 1200px) {
     header {
         height: 70px;

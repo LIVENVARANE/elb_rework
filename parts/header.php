@@ -26,13 +26,13 @@ if(isset($_SESSION['id'])) {
             <img src="assets/admin.png" style="animation-delay: .4s;" onclick="link('manage.php')" />
         <?php } ?>
         <img src="assets/light_mode.png" style="animation-delay: .3s;" />
-        <img src="assets/account.png" style="animation-delay: .2s;" onclick="link('signin.php')" />
+        <img src="assets/french_flag.png" style="animation-delay: .2s;" />
         <img src="assets/cog.png" style="animation-delay: .1s;" />
     </div>
     <div class="more-container shown">
         <img onclick="toggleHeaderMore()" />
         <div class="vl"></div>
-        <img src="assets/french_flag.png" />
+        <img src="assets/account.png" onclick="document.getElementById('account-cb').click()" />
     </div>
     <div class="burger-btn">
         <input type="checkbox" onclick="mobileMenu(this)" />
@@ -41,3 +41,22 @@ if(isset($_SESSION['id'])) {
         <span></span>
     </div>
 </header>
+<input id="account-cb" type="checkbox" />
+<div class="account">
+    <div class="header">
+        <h1>Account</h1>
+        <span>Account</span>
+        <i class="fas fa-times" onclick="document.getElementById('account-cb').click()"></i>
+    </div>
+    <?php if(!isset($_SESSION['id'])) { ?>
+        <div class="line" onclick="link('signin.php')"><i class="fas fa-sign-in-alt"></i>Sign-in</div>
+        <div class="line" onclick="link('signup.php')"><i class="fas fa-user-plus"></i>Create an account</div>
+    <?php } else { ?>
+        <div class="line" onclick="link('profile.php')"><i class="fas fa-user-edit"></i>Manage account</div>
+        <div class="line"><i class="fas fa-shopping-cart"></i>Go to cart</div>
+        <?php if(isset($userInfo) && in_array('admin', explode(',', $userInfo['access']))) { ?>
+            <div class="line" onclick="link('manage.php')"><i class="fas fa-wrench"></i>manage.js panel</div>
+        <?php } ?>
+    <div class="line" onclick="link('logout.php')"><i class="fas fa-sign-out-alt"></i>Disconnect</div>
+    <?php } ?>
+</div>
