@@ -276,41 +276,6 @@ header .more-container img:last-of-type {
     border-radius: 15px;
 }
 
-header .buttons-container {
-    position: absolute;
-    height: 100%;
-    right: 140px;
-    top: 0px;
-    pointer-events: none;
-}
-
-header .buttons-container.shown {
-    pointer-events: auto;
-}
-
-header .buttons-container.shown img {
-    animation: right-header-enter .5s forwards;
-}
-
-header .buttons-container img {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 25px;
-    margin-left: 20px;
-    opacity: 0;
-    cursor: pointer;
-    
-}
-
-header .buttons-container img:hover {
-    filter: brightness(.8);
-}
-
-header .buttons-container img:active {
-    filter: brightness(.6);
-}
-
 header .burger-btn {
     display: none;
     flex-direction: column;
@@ -499,11 +464,11 @@ header .burger-btn input:checked~#mobile-menu {
     margin-right: 10px;
 }
 
-#account-cb {
+#account-cb, #more-cb {
     display: none;
 }
 
-.account {
+.account, .more {
     position: fixed;
     top: 0px;
     right: -300px;
@@ -514,14 +479,14 @@ header .burger-btn input:checked~#mobile-menu {
     transition: .3s cubic-bezier(0.19, 0, 0.15, 0.97) right;
 }
 
-.account .header {
+.account .header, .more .header {
     position: relative;
     height: 75px;
     overflow: hidden;
     margin-bottom: 10px;
 }
 
-.account .header h1 {
+.account .header h1, .more .header h1 {
     position: relative;
     left: 15px;
     /* top: 5px; */
@@ -531,7 +496,7 @@ header .burger-btn input:checked~#mobile-menu {
     transition: .5s .1s cubic-bezier(0.26, 0.06, 0.28, 1) top;
 }
 
-.account .header span {
+.account .header span, .more .header span {
     position: relative;
     /* top: -105px; */
     top: 45px;
@@ -544,7 +509,7 @@ header .burger-btn input:checked~#mobile-menu {
     transition: 1s cubic-bezier(0.26, 0.06, 0.28, 1) top;
 }
 
-.account .header i {
+.account .header i, .more .header i {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -557,7 +522,7 @@ header .burger-btn input:checked~#mobile-menu {
     cursor: pointer;
 }
 
-.account .line {
+.account .line, .more .line {
     height: 40px;
     line-height: 40px;
     padding-left: 25px;
@@ -567,11 +532,11 @@ header .burger-btn input:checked~#mobile-menu {
     transition: .2s ease letter-spacing;
 }
 
-.account .line:hover {
+.account .line:hover, .more .line:hover {
     letter-spacing: 1px;
 }
 
-.account .line i {
+.account .line i, .more .line i {
     margin-right: 10px;
 }
 
@@ -584,6 +549,18 @@ header .burger-btn input:checked~#mobile-menu {
 }
 
 #account-cb:checked + .account .header span {
+    top: -105px;
+}
+
+#more-cb:checked + .more {
+    right: 0px;
+}
+
+#more-cb:checked + .more .header h1 {
+    top: 5px;
+}
+
+#more-cb:checked + .more .header span {
     top: -105px;
 }
 
@@ -615,23 +592,12 @@ header .burger-btn input:checked~#mobile-menu {
         left: unset;
     }
 
-    header .buttons-container {
-        right: 125px;
-    }
-
-    header .buttons-container img {
-        margin-left: 10px;
-    }
-
     header .more-container {
         right: 15px;
     }
 }
 
 @media only screen and (max-width: 800px) {
-    header .buttons-container {
-        display: none;
-    }
 
     header .more-container {
         display: none;

@@ -21,16 +21,8 @@ if(isset($_SESSION['id'])) {
         <div class="big" style="background-color: #7289DA; animation-delay: .2s;"><i class="fab fa-discord"></i> Discord</div>
         <div style="background-color: red; animation-delay: .1s;"><i class="fab fa-youtube"></i></div>
     </div>
-    <div class="buttons-container">
-        <?php if(isset($userInfo) && in_array('admin', explode(',', $userInfo['access']))) { ?>
-            <img src="assets/admin.png" style="animation-delay: .4s;" onclick="link('manage.php')" />
-        <?php } ?>
-        <img src="assets/light_mode.png" style="animation-delay: .3s;" />
-        <img src="assets/french_flag.png" style="animation-delay: .2s;" />
-        <img src="assets/cog.png" style="animation-delay: .1s;" />
-    </div>
     <div class="more-container shown">
-        <img onclick="toggleHeaderMore()" />
+        <img onclick="document.getElementById('more-cb').click(); document.querySelector('.account-tooltip').style.display = 'none';" />
         <div class="vl"></div>
         <img src="assets/account.png" onclick="document.getElementById('account-cb').click()" />
     </div>
@@ -59,4 +51,16 @@ if(isset($_SESSION['id'])) {
         <?php } ?>
     <div class="line" onclick="link('logout.php')"><i class="fas fa-sign-out-alt"></i>Disconnect</div>
     <?php } ?>
+</div>
+<input id="more-cb" type="checkbox" />
+<div class="more">
+    <div class="header">
+            <h1>More</h1>
+            <span>More</span>
+            <i class="fas fa-times" onclick="document.getElementById('more-cb').click()"></i>
+        </div>
+        <div class="line"><i class="fas fa-sign-in-alt"></i>Language</div>
+        <div class="line"><i class="fas fa-sign-in-alt"></i>Toggle light mode</div>
+        <div class="line" onclick="link('legal.php')"><i class="fas fa-balance-scale"></i>Legal pages</div>
+    </div>
 </div>

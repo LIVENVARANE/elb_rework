@@ -196,7 +196,7 @@ table .td-close i {
     display: none;
     position: fixed;
     width: 800px;
-    height: 400px;
+    height: 500px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
