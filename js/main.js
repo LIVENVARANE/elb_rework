@@ -12,6 +12,10 @@ function link(where, newpage) {
     }
 }
 
+function linkForLang(en, fr, newpage) {
+    console.log('TODO linkForLang');
+}
+
 function mobileMenu(input) {
     if(document.getElementById('mobile-menu').style.left != '0px') { //mobile menu closed
         document.getElementById('mobile-menu').style.left = '0px';

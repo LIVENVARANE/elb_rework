@@ -6,6 +6,10 @@ if(isset($_SESSION['id'])) {
     $userInfo = $checkuser->fetch();
 }
 
+$loadManage = $db->prepare("SELECT * FROM manage WHERE id = 1");
+$loadManage->execute(array());
+$headerManageInfos = $loadManage->fetch();
+
 ?>
 <header>
     <div class="logo-container" onclick="link('home.php')">
@@ -18,8 +22,8 @@ if(isset($_SESSION['id'])) {
         <div class="link" onclick="link('faq.php')"><a>FAQ</a></div>
     </div>
     <div class="media-container shown">
-        <div class="big" style="background-color: #7289DA; animation-delay: .2s;"><i class="fab fa-discord"></i> Discord</div>
-        <div style="background-color: red; animation-delay: .1s;"><i class="fab fa-youtube"></i></div>
+        <div class="big" onclick="linkForLang('<?= $headerManageInfos['discordEn']  ?>', '<?= $headerManageInfos['discordFr']  ?>', true)" style="background-color: #7289DA; animation-delay: .2s;"><i class="fab fa-discord"></i> Discord</div>
+        <div onclick="link('<?= $headerManageInfos['youtube']  ?>', true)" style="background-color: red; animation-delay: .1s;"><i class="fab fa-youtube"></i></div>
     </div>
     <div class="more-container shown">
         <img onclick="document.getElementById('more-cb').click(); document.querySelector('.account-tooltip').style.display = 'none';" />
@@ -45,7 +49,6 @@ if(isset($_SESSION['id'])) {
         <div class="line" onclick="link('signup.php')"><i class="fas fa-user-plus"></i>Create an account</div>
     <?php } else { ?>
         <div class="line" onclick="link('profile.php')"><i class="fas fa-user-edit"></i>Manage account</div>
-        <div class="line"><i class="fas fa-shopping-cart"></i>Go to cart</div>
         <?php if(isset($userInfo) && in_array('admin', explode(',', $userInfo['access']))) { ?>
             <div class="line" onclick="link('manage.php')"><i class="fas fa-wrench"></i>manage.js panel</div>
         <?php } ?>
@@ -62,5 +65,6 @@ if(isset($_SESSION['id'])) {
         <div class="line"><i class="fas fa-sign-in-alt"></i>Language</div>
         <div class="line"><i class="fas fa-sign-in-alt"></i>Toggle light mode</div>
         <div class="line" onclick="link('legal.php')"><i class="fas fa-balance-scale"></i>Legal pages</div>
+        <div class="line" onclick="link('about.php')"><i class="fas fa-sign-in-alt"></i>About the website</div>
     </div>
 </div>

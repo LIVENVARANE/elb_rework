@@ -85,7 +85,21 @@ function addRowForWizardValues(wizardName) {
     switch (wizardName) {
         case 'free':
             var wizard = document.getElementById('free-wizard');
-            document.getElementById('table-body-free').innerHTML = document.getElementById('table-body-free').innerHTML + '<tr class="free-menu"><td class="handle"><i class="fas fa-bars"></i></td><td contenteditable class="name">' + wizard.querySelector('input[name="name"]').value + '</td><td contenteditable class="status">' + wizard.querySelector('input[name="status"]').value + '</td><td contenteditable class="image">' + 'ok' + '</td><td contenteditable class="frDL">' + wizard.querySelector('input[name="frDL"]').value + '</td><td contenteditable class="enDL">' + wizard.querySelector('input[name="enDL"]').value + '</td><td class="enabled"><input type="checkbox" /></td><td class="td-close"><i class="fas fa-times"></i></td></tr>';
+
+            var imageName = '';
+            if(wizard.querySelector('input[name="free_image"]').value != '') {
+                var fileName = wizard.querySelector('input[name="free_image"]').value.split('/').pop().split('\\').pop();
+                imageName = fileName.split('.').slice(0, -1).join('.') + '_' + Date.now() + fileName.substring(fileName.lastIndexOf('.'));
+            }
+
+            var inputClone = $('#freeImageInput').clone();
+            inputClone.attr('id', 'fileInput');
+            inputClone.attr('name', 'fileUpload');
+            $('#fileUploadContainer').html(inputClone);
+            
+            document.getElementById('submitFileInput').click();
+
+            document.getElementById('table-body-free').innerHTML = document.getElementById('table-body-free').innerHTML + '<tr class="free-menu"><td class="handle"><i class="fas fa-bars"></i></td><td contenteditable class="name">' + wizard.querySelector('input[name="name"]').value + '</td><td contenteditable class="status">' + wizard.querySelector('input[name="status"]').value + '</td><td contenteditable class="image">' + imageName + '</td><td contenteditable class="frDL">' + wizard.querySelector('input[name="frDL"]').value + '</td><td contenteditable class="enDL">' + wizard.querySelector('input[name="enDL"]').value + '</td><td class="enabled"><input type="checkbox" /></td><td class="td-close"><i class="fas fa-times"></i></td></tr>';
             break;
         case 'paid':
             var wizard = document.getElementById('paid-wizard');

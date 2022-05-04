@@ -1,0 +1,67 @@
+.pane-wrapper {
+    width: calc(80% - 60px);
+    min-height: calc(100% - 160px);
+    padding: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pane-wrapper .info-pane {
+    position: absolute;
+    left: 0px;
+    width: calc(60% - 30px);
+    min-height: calc(100% - 60px);
+    background-color: var(--containerGrey);
+    border-radius: var(--mainBRadius);
+}
+
+.pane-wrapper .info-pane .visual-header {
+    height: 200px;
+    padding: 20px;
+}
+
+.pane-wrapper .info-pane .visual-header iframe {
+    border-radius: var(--mainBRadius);
+}
+
+.pane-wrapper .info-pane .description {
+    padding: 30px;
+}
+
+.pane-wrapper .buy-pane {
+    position: absolute;
+    right: 30px;
+    width: calc(40% - 45px);
+    min-height: calc(100% - 60px);
+    background-color: var(--containerGrey);
+    border-radius: var(--mainBRadius);
+}
+
+.pane-wrapper .buy-pane h1 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.pane-wrapper .buy-pane button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16pt;
+    padding: 5px 70px;
+    letter-spacing: .5px;
+}
+
+.pane-wrapper .buy-pane .payment-info {
+    padding: 20px;
+    font-size: 9pt;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.pane-wrapper .buy-pane .aggreement {
+    font-style: italic;
+    font-size: 9pt;
+    padding: 10px;
+    opacity: .6;
+    position: absolute;
+    bottom: 15px;
+}

@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+$db = new PDO('mysql:host=127.0.0.1;dbname=elbmodzz', 'root', '');
+
+$loadManage = $db->prepare("SELECT * FROM manage WHERE id = 1");
+$loadManage->execute(array());
+
+$mods = json_decode($loadManage->fetch()['paidMenus']);
+
+?>
 <html>
     <head>
         <title>ELBModzz - Paid Mods</title>
@@ -21,48 +32,21 @@
             </div>
         </div>
         <div id="card-container" align="center">
-            <div>
-                <img src="assets/material/paidmods/kiddions.png" />
-                <span class="name">Kiddions v4.1</span>
-                <span class="body">Easy to use, powerful menu</span>
-                <span class="price">€1.50</span>
-                <span class="see"><i class="fas fa-eye"></i>MORE INFO</span>
-            </div>
-            <div>
-                <img src="assets/material/paidmods/kiddions.png" />
-                <span class="name">Kiddions v4.1</span>
-                <span class="body">Easy to use, powerful menu</span>
-                <span class="price">€1.50</span>
-                <span class="see"><i class="fas fa-eye"></i>MORE INFO</span>
-            </div>
-            <div>
-                <img src="assets/material/paidmods/kiddions.png" />
-                <span class="name">Kiddions v4.1</span>
-                <span class="body">Easy to use, powerful menu</span>
-                <span class="price">€1.50</span>
-                <span class="see"><i class="fas fa-eye"></i>MORE INFO</span>
-            </div>
-            <div>
-                <img src="assets/material/paidmods/kiddions.png" />
-                <span class="name">Kiddions v4.1</span>
-                <span class="body">Easy to use, powerful menu</span>
-                <span class="price">€1.50</span>
-                <span class="see"><i class="fas fa-eye"></i>MORE INFO</span>
-            </div>
-            <div>
-                <img src="assets/material/paidmods/kiddions.png" />
-                <span class="name">Kiddions v4.1</span>
-                <span class="body">Easy to use, powerful menu</span>
-                <span class="price">€1.50</span>
-                <span class="see"><i class="fas fa-eye"></i>MORE INFO</span>
-            </div>
-            <div>
-                <img src="assets/material/paidmods/kiddions.png" />
-                <span class="name">Kiddions v4.1</span>
-                <span class="body">Easy to use, powerful menu</span>
-                <span class="price">€1.50</span>
-                <span class="see"><i class="fas fa-eye"></i>MORE INFO</span>
-            </div>
+            <?php
+            foreach ($mods as $mod) {
+                if($mod->{'enabled'}) {
+                    echo '
+                    <div onclick="link(\'product.php?code=' . $mod->{'productNumber'} . '\')">
+                        <img src="assets/material/paidmods/kiddions.png" />
+                        <span class="name">' . $mod->{'name'} . '</span>
+                        <span class="body">' . $mod->{'description'} . '</span>
+                        <span class="price">€' . $mod->{'price'} . '</span>
+                        <span class="see"><i class="fas fa-eye"></i>MORE INFO</span>
+                    </div>
+                    ';
+                }
+            }
+            ?>
         </div>
         <?php include 'parts/universal_parts.html' ?>
     </body>

@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+$db = new PDO('mysql:host=127.0.0.1;dbname=elbmodzz', 'root', '');
 
 if(isset($_GET['anim'])) {
     echo '<script>document.addEventListener(\'DOMContentLoaded\', function() { setTimeout(function() { document.getElementById("discover-anim").style.left = "100%"; }, 500); });</script>';

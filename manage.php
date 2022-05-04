@@ -153,6 +153,23 @@ if(isset($_POST['submitProducts'])) {
     }
 }
 
+if(isset($_POST['submitFile'])) {
+    if(!empty($_FILES['fileUpload']['name'])) { echo 'h';
+        $maxWht = 100000000;
+        $acceptedExt = array('jpg', 'png', 'jpeg');
+        if($_FILES['fileUpload']['size'] <= $maxWht) {
+            $extUpload = strtolower(substr(strrchr($_FILES['fileUpload']['name'], '.'), 1));
+            if(in_array($extUpload, $acceptedExt)) {
+                $destination_path = getcwd().DIRECTORY_SEPARATOR;
+                $path = $destination_path . '../cdn/files/material/' . $_FILES['fileUpload']['name'];
+                $move = move_uploaded_file($_FILES['fileUpload']['tmp_name'], $path);
+            }
+        }
+    } else {
+        var_dump($_FILES['fileUpload']);
+    }
+}
+
 ?>
 <html>
     <head>
@@ -161,6 +178,7 @@ if(isset($_POST['submitProducts'])) {
         <link rel="stylesheet" href="css/manage.css" />
         <script src="js/manage.js"></script>
         <script src="js/Sortable.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
         <header>
@@ -257,7 +275,7 @@ if(isset($_POST['submitProducts'])) {
                         <br />
                         <label>Statut</label><input name="status" type="text" placeholder="Ex: Safe/Unsafe/Maintenance..." />
                         <br />
-                        <label>Image</label><input name="image" type="file" accept="image/png, image/jpeg, image/jpg" />
+                        <label>Image</label><input name="free_image" id="freeImageInput" type="file" accept="image/png, image/jpeg, image/jpg" />
                         <br />
                         <label>Téléchargement (Français)</label><input name="frDL" type="text" placeholder="Lien de téléchargement..." />
                         <br />
@@ -298,7 +316,7 @@ if(isset($_POST['submitProducts'])) {
                         <br />
                         <label>Statut</label><input name="status" type="text" placeholder="Ex: Safe/Unsafe/Maintenance..." />
                         <br />
-                        <label>Image</label><input name="image" type="file" accept="image/png, image/jpeg, image/jpg" />
+                        <label>Image</label><input name="paid_image" type="file" accept="image/png, image/jpeg, image/jpg" />
                         <br />
                         <label>Description courte</label><input name="description" type="text" placeholder="" />
                         <br />
@@ -348,7 +366,7 @@ if(isset($_POST['submitProducts'])) {
                         <br />
                         <label>Statut</label><input name="status" type="text" placeholder="Ex: Safe/Unsafe/Maintenance..." />
                         <br />
-                        <label>Image</label><input name="image" type="file" accept="image/png, image/jpeg, image/jpg" />
+                        <label>Image</label><input name="product_image" type="file" accept="image/png, image/jpeg, image/jpg" />
                         <br />
                         <label>Description longue</label><input name="description" type="text" placeholder="mettre en textarea" />
                         <br />
@@ -374,6 +392,11 @@ if(isset($_POST['submitProducts'])) {
                     <h1>Contact</h1>
                     <span>Cette page n'est pas terminée, passez plus tard</span>
                 </div>
+            </form>
+            <!-- <form action='{$_SERVER['PHP_SELF']}' method='POST' onsubmit="javascript:return false;" style="display: none;"> -->
+            <form method="POST">
+                <span id="fileUploadContainer"><input type="file" name="fileUpload" id="fileInput" /></span>
+                <input type="submit" name="submitFile" id="submitFileInput" />
             </form>
         </div>
     </body>

@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+$db = new PDO('mysql:host=127.0.0.1;dbname=elbmodzz', 'root', '');
+
+$loadManage = $db->prepare("SELECT * FROM manage WHERE id = 1");
+$loadManage->execute(array());
+$mods = json_decode($loadManage->fetch()['freeMenus']);
+
+?>
 <html>
     <head>
         <title>ELBModzz - Free Mods</title>
@@ -21,36 +31,19 @@
             </div>
         </div>
         <div id="card-container" align="center">
-            <div>
-                <img src="assets/material/gtamods/kiddions.png" />
-                <span class="name">Kiddions</span>
-                <span class="download"><i class="fas fa-download"></i>DOWNLOAD</span>
-            </div>
-            <div>
-                <img src="assets/material/gtamods/kiddions.png" />
-                <span class="name">Kiddions</span>
-                <span class="download"><i class="fas fa-download"></i>DOWNLOAD</span>
-            </div>
-            <div>
-                <img src="assets/material/gtamods/kiddions.png" />
-                <span class="name">Kiddions</span>
-                <span class="download"><i class="fas fa-download"></i>DOWNLOAD</span>
-            </div>
-            <div>
-                <img src="assets/material/gtamods/kiddions.png" />
-                <span class="name">Kiddions</span>
-                <span class="download"><i class="fas fa-download"></i>DOWNLOAD</span>
-            </div>
-            <div>
-                <img src="assets/material/gtamods/kiddions.png" />
-                <span class="name">Kiddions</span>
-                <span class="download"><i class="fas fa-download"></i>DOWNLOAD</span>
-            </div>
-            <div>
-                <img src="assets/material/gtamods/kiddions.png" />
-                <span class="name">Kiddions</span>
-                <span class="download"><i class="fas fa-download"></i>DOWNLOAD</span>
-            </div>
+            <?php
+            foreach ($mods as $mod) {
+                if($mod->{'enabled'}) {
+                    echo '
+                    <div onclick="linkForLang(\'' . $mod->{'frDL'} . '\', \'' . $mod->{'enDL'} . '\')">
+                        <img src="assets/material/gtamods/kiddions.png" />
+                        <span class="name">' . $mod->{'name'} . '</span>
+                        <span class="download"><i class="fas fa-download"></i>DOWNLOAD</span>
+                    </div>
+                    ';
+                }
+            }
+            ?>
         </div>
         <?php include 'parts/universal_parts.html' ?>
     </body>
